@@ -4,11 +4,13 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 
 export default function AboutPage() {
+  const MotionDiv = motion.div as any;
+  
   return (
     <div className="min-h-screen pt-40 pb-24">
       <div className="container px-6 mx-auto">
         <header className="max-w-3xl mb-24">
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
@@ -18,11 +20,11 @@ export default function AboutPage() {
               Doruk Söve olarak 15 yılı aşkın süredir mekanlarınıza karakter katıyor, 
               estetik ve dayanıklılığı en üst seviyede birleştiriyoruz.
             </p>
-          </motion.div>
+          </MotionDiv>
         </header>
 
         <div className="grid md:grid-cols-2 gap-12 items-center mb-32">
-          <motion.div 
+          <MotionDiv 
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -34,9 +36,9 @@ export default function AboutPage() {
               fill 
               className="object-cover opacity-80"
             />
-          </motion.div>
+          </MotionDiv>
           
-          <motion.div 
+          <MotionDiv 
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -64,7 +66,7 @@ export default function AboutPage() {
                 çözümler geliştiren öncü bir firma konumuna ulaşmak.
               </p>
             </div>
-          </motion.div>
+          </MotionDiv>
         </div>
 
         {/* Values */}
@@ -74,7 +76,7 @@ export default function AboutPage() {
             { title: 'İnovasyon', desc: 'Modern tasarım trendlerini teknoloji ile buluşturuyoruz.' },
             { title: 'Güven', desc: 'Yılların verdiği tecrübe ile satış sonrası tam destek.' },
           ].map((item, i) => (
-            <motion.div 
+            <MotionDiv 
               key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -85,7 +87,7 @@ export default function AboutPage() {
               <div className="text-4xl font-black text-white/10 group-hover:text-white/20 transition-colors mb-4">0{i+1}</div>
               <h4 className="text-xl font-bold text-white mb-3">{item.title}</h4>
               <p className="text-silver-dark text-sm font-light">{item.desc}</p>
-            </motion.div>
+            </MotionDiv>
           ))}
         </div>
       </div>

@@ -25,6 +25,7 @@ const categories = ["All", ...Array.from(new Set(seedProducts.map(p => p.categor
 export default function ProductsPage() {
   const [q, setQ] = useState('')
   const [cat, setCat] = useState<string>('All')
+  const MotionDiv = motion.div as any;
 
   const visible = useMemo(() => {
     return seedProducts.filter(p => (cat === 'All' || p.category === cat) && p.name.toLowerCase().includes(q.toLowerCase()))
@@ -34,7 +35,7 @@ export default function ProductsPage() {
     <div className="min-h-screen pt-40 pb-24">
       <div className="container px-6 mx-auto">
         <header className="max-w-3xl mb-24">
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
@@ -44,7 +45,7 @@ export default function ProductsPage() {
               Projeleriniz için en kaliteli malzemeleri ve en şık tasarımları bir araya getirdik. 
               Modern detaylar, zamansız estetik.
             </p>
-          </motion.div>
+          </MotionDiv>
         </header>
 
         {/* Filters */}
@@ -83,13 +84,13 @@ export default function ProductsPage() {
           </div>
         </div>
 
-        <motion.div 
+        <MotionDiv 
           layout
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10"
         >
           <AnimatePresence mode='popLayout'>
             {visible.map((p, i) => (
-              <motion.div 
+              <MotionDiv 
                 key={p.id} 
                 layout
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -98,10 +99,10 @@ export default function ProductsPage() {
                 transition={{ duration: 0.4, delay: i * 0.05 }}
               >
                 <ProductCard p={p} />
-              </motion.div>
+              </MotionDiv>
             ))}
           </AnimatePresence>
-        </motion.div>
+        </MotionDiv>
 
         {visible.length === 0 && (
           <div className="text-center py-24 glass-card rounded-3xl border-dashed">

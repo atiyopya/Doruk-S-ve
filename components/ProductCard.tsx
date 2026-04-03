@@ -5,8 +5,9 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 
 export default function ProductCard({ p }: { p: { id: string; name: string; category: string; image: string } }) {
+  const MotionDiv = motion.div as any;
   return (
-    <motion.div 
+    <MotionDiv 
       whileHover={{ y: -10 }}
       className="group relative"
     >
@@ -49,6 +50,6 @@ export default function ProductCard({ p }: { p: { id: string; name: string; cate
           </div>
         </div>
       </Link>
-    </motion.div>
+    </MotionDiv>
   )
 }

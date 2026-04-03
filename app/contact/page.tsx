@@ -1,9 +1,11 @@
 "use client";
 import React from 'react'
 import { motion } from 'framer-motion'
+import { Phone, Mail, MapPin, Instagram, MessageCircle } from 'lucide-react'
 
 export default function ContactPage() {
   const [status, setStatus] = React.useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const MotionDiv = motion.div as any;
 
   // BURAYA FORMSPREE'DEN ALACAĞINIZ ID'Yİ YAZIN (Örn: "mqknzjzb")
   const FORMSPREE_ID = "mpqoyjyq";
@@ -37,7 +39,7 @@ export default function ContactPage() {
     <div className="min-h-screen pt-40 pb-24">
       <div className="container px-6 mx-auto">
         <header className="max-w-3xl mb-24">
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
@@ -47,12 +49,12 @@ export default function ContactPage() {
               Projeleriniz için teknik destek, katalog talebi veya özel teklifleriniz için 
               ekibimizle iletişime geçin.
             </p>
-          </motion.div>
+          </MotionDiv>
         </header>
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Contact Form */}
-          <motion.div 
+          <MotionDiv 
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             className="glass-card p-10 rounded-[2rem] border-white/5 shadow-2xl relative overflow-hidden"
@@ -64,122 +66,173 @@ export default function ContactPage() {
             </div>
             
             {status === 'success' ? (
-              <motion.div 
+              <MotionDiv 
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 className="py-20 text-center space-y-6"
               >
-                <div className="w-20 h-20 bg-green-500/20 text-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <svg className="w-10 h-10 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
                 <h2 className="text-3xl font-bold text-white">Mesajınız Alındı!</h2>
-                <p className="text-silver-dark">En kısa sürede oltan44@gmail.com üzerinden size geri dönüş sağlayacağız.</p>
+                <p className="text-silver-dark">En kısa sürede oltan44@gmail.com adresinden size dönüş sağlayacağız.</p>
                 <button 
                   onClick={() => setStatus('idle')}
-                  className="btn-outline px-8"
+                  className="px-8 py-3 bg-white text-black font-bold rounded-full hover:bg-silver transition-colors"
                 >
                   Yeni Mesaj Gönder
                 </button>
-              </motion.div>
+              </MotionDiv>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6 relative z-10" aria-label="İletişim formu">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
+                <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase tracking-widest text-silver-dark ml-2">Ad Soyad</label>
-                    <input name="name" required className="w-full bg-obsidian/50 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-white/30 transition-colors" placeholder="Ahmet Yılmaz" />
+                    <label className="text-xs font-bold uppercase tracking-widest text-silver-dark ml-1">Ad Soyad</label>
+                    <input 
+                      name="name"
+                      required
+                      type="text" 
+                      placeholder="John Doe"
+                      className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 text-white focus:outline-none focus:border-white/30 transition-colors placeholder:text-white/20"
+                    />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase tracking-widest text-silver-dark ml-2">Email</label>
-                    <input name="email" required className="w-full bg-obsidian/50 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-white/30 transition-colors" placeholder="ahmet@example.com" type="email" />
+                    <label className="text-xs font-bold uppercase tracking-widest text-silver-dark ml-1">E-Posta</label>
+                    <input 
+                      name="email"
+                      required
+                      type="email" 
+                      placeholder="john@example.com"
+                      className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 text-white focus:outline-none focus:border-white/30 transition-colors placeholder:text-white/20"
+                    />
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-silver-dark ml-2">Konu</label>
-                  <select name="subject" className="w-full bg-obsidian/50 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-white/30 transition-colors appearance-none text-white">
-                    <option className="bg-obsidian text-white">Teklif Talebi</option>
-                    <option className="bg-obsidian text-white">Teknik Destek</option>
-                    <option className="bg-obsidian text-white">Katalog İstek</option>
-                    <option className="bg-obsidian text-white">Diğer</option>
-                  </select>
+                  <label className="text-xs font-bold uppercase tracking-widest text-silver-dark ml-1">Konu</label>
+                  <input 
+                    name="subject"
+                    required
+                    type="text" 
+                    placeholder="Ürün Bilgisi / Teklif Talebi"
+                    className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 text-white focus:outline-none focus:border-white/30 transition-colors placeholder:text-white/20"
+                  />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-silver-dark ml-2">Mesaj</label>
-                  <textarea name="message" required className="w-full bg-obsidian/50 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-white/30 transition-colors" rows={4} placeholder="Size nasıl yardımcı olabiliriz?" />
+                  <label className="text-xs font-bold uppercase tracking-widest text-silver-dark ml-1">Mesajınız</label>
+                  <textarea 
+                    name="message"
+                    required
+                    rows={5}
+                    placeholder="Mesajınızı buraya yazın..."
+                    className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 text-white focus:outline-none focus:border-white/30 transition-colors placeholder:text-white/20 resize-none"
+                  ></textarea>
                 </div>
+                
+                {status === 'error' && (
+                  <div className="text-red-400 text-sm font-medium bg-red-400/10 p-4 rounded-xl border border-red-400/20">
+                    Bir hata oluştu. Lütfen tekrar deneyin.
+                  </div>
+                )}
+
                 <button 
                   disabled={status === 'loading'}
-                  type="submit" 
-                  className={`w-full btn-premium py-4 flex items-center justify-center gap-3 ${status === 'loading' ? 'opacity-70 cursor-not-allowed' : ''}`}
+                  className="w-full bg-white text-black font-black py-5 rounded-2xl hover:bg-silver transition-all transform active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed group flex items-center justify-center gap-3"
                 >
                   {status === 'loading' ? (
+                    'GÖNDERİLİYOR...'
+                  ) : (
                     <>
-                      <div className="w-5 h-5 border-2 border-obsidian/30 border-t-obsidian animate-spin rounded-full" />
-                      GÖNDERİLİYOR...
+                      MESAJI GÖNDER
+                      <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      </svg>
                     </>
-                  ) : 'MESAJI GÖNDER'}
+                  )}
                 </button>
-
-                {status === 'error' && (
-                  <p className="text-red-500 text-sm text-center">Bir hata oluştu, lütfen ID'nizi kontrol edin.</p>
-                )}
               </form>
             )}
-          </motion.div>
+          </MotionDiv>
 
-          {/* Info & Map */}
-          <motion.div 
+          {/* Contact Info */}
+          <MotionDiv 
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             className="space-y-8"
           >
-            <div className="glass-card p-10 rounded-[2rem]">
-              <h2 className="text-2xl font-bold text-white mb-8">İletişim Bilgileri</h2>
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-white shrink-0">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-silver-dark uppercase tracking-widest mb-1">Merkez Ofis</h4>
-                    <p className="text-white font-light">Horozluhan, Güvenli Sk. 20 E, 42000 Selçuklu/Konya</p>
-                  </div>
+            <div className="glass-card p-8 rounded-3xl space-y-6">
+              <div className="flex items-start gap-6 group">
+                <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center group-hover:bg-white/10 transition-colors">
+                  <Phone className="text-white w-6 h-6" />
                 </div>
-                
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-white shrink-0">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2-2v10a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-silver-dark uppercase tracking-widest mb-1">E-Posta</h4>
-                    <p className="text-white font-light">oltan44@gmail.com</p>
-                  </div>
+                <div>
+                  <h3 className="text-silver-dark text-xs font-bold uppercase tracking-widest mb-1">Telefon</h3>
+                  <a href="tel:+905304401472" className="text-white text-xl font-medium hover:text-silver transition-colors">530 440 14 72</a>
                 </div>
+              </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-white shrink-0">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-silver-dark uppercase tracking-widest mb-1">Müşteri Hattı</h4>
-                    <p className="text-white font-light">+90 530 440 14 72</p>
-                  </div>
+              <div className="flex items-start gap-6 group">
+                <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center group-hover:bg-white/10 transition-colors">
+                  <Mail className="text-white w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="text-silver-dark text-xs font-bold uppercase tracking-widest mb-1">E-Posta</h3>
+                  <a href="mailto:oltan44@gmail.com" className="text-white text-xl font-medium hover:text-silver transition-colors">oltan44@gmail.com</a>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-6 group">
+                <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center group-hover:bg-white/10 transition-colors">
+                  <MapPin className="text-white w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="text-silver-dark text-xs font-bold uppercase tracking-widest mb-1">Adres</h3>
+                  <p className="text-white text-lg font-light leading-snug">Horozluhan, Güvenli Sk. 20 E, 42000 Selçuklu/Konya</p>
                 </div>
               </div>
             </div>
 
-            <div className="glass-card p-4 rounded-[2rem] h-[350px] overflow-hidden grayscale contrast-125 brightness-75 hover:grayscale-0 transition-all duration-700">
-               <iframe title="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3148.016335133649!2d32.50337937666249!3d37.9132927719503!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d08f97229d983d%3A0x1119106282e7f7b6!2sHorozluhan%2C%20G%C3%BCvenli%20Sk.%2020%20E%2C%2042000%2BSel%C3%A7uklu%2FKonya!5e0!3m2!1str!2str!4v1712171400266!5m2!1str!2str" width="100%" height="100%" style={{border:0}} loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+            {/* Social & WhatsApp Buttons */}
+            <div className="grid grid-cols-2 gap-4">
+              <a 
+                href="https://share.google/AmUEjy7xbspuBxBAl" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="glass-card p-6 rounded-2xl flex flex-col items-center gap-3 hover:bg-white/10 transition-all group"
+              >
+                <div className="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <MapPin className="text-blue-400 w-6 h-6" />
+                </div>
+                <span className="text-white text-sm font-bold uppercase tracking-widest">Konum Al</span>
+              </a>
+              <a 
+                href="https://www.instagram.com/konya_uv_baski_doruk_sove_/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="glass-card p-6 rounded-2xl flex flex-col items-center gap-3 hover:bg-white/10 transition-all group"
+              >
+                <div className="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <Instagram className="text-purple-400 w-6 h-6" />
+                </div>
+                <span className="text-white text-sm font-bold uppercase tracking-widest">Instagram</span>
+              </a>
             </div>
-          </motion.div>
+
+            {/* WhatsApp CTA */}
+            <a 
+              href="https://wa.me/905304401472" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="w-full bg-[#25D366] hover:bg-[#20bd5c] p-6 rounded-3xl flex items-center justify-center gap-4 transition-all shadow-xl group"
+            >
+              <MessageCircle className="text-white w-8 h-8 group-hover:rotate-12 transition-transform" />
+              <div className="text-left">
+                <p className="text-white/80 text-[10px] font-bold uppercase tracking-widest leading-none mb-1">WhatsApp'tan Yazın</p>
+                <p className="text-white text-lg font-black tracking-tighter">HIZLI TEKLİF ALIN</p>
+              </div>
+            </a>
+          </MotionDiv>
         </div>
       </div>
     </div>

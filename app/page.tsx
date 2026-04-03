@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 
 export default function Home() {
+  const MotionDiv = motion.div as any;
   return (
     <div className="relative min-h-screen">
       {/* Hero Section */}
@@ -25,7 +26,7 @@ export default function Home() {
         {/* Content */}
         <div className="container relative z-20 px-6 mx-auto">
           <div className="max-w-4xl pt-24">
-            <motion.div 
+            <MotionDiv 
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
@@ -54,12 +55,12 @@ export default function Home() {
                   Bizimle İletişime Geçin
                 </Link>
               </div>
-            </motion.div>
+            </MotionDiv>
           </div>
         </div>
 
         {/* Scroll Indicator */}
-        <motion.div 
+        <MotionDiv 
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
           className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 hidden md:block"
@@ -67,7 +68,7 @@ export default function Home() {
           <div className="w-6 h-10 border-2 border-white/20 rounded-full flex justify-center p-1">
             <div className="w-1 h-2 bg-white rounded-full" />
           </div>
-        </motion.div>
+        </MotionDiv>
       </section>
 
       {/* Stats Section */}
@@ -80,7 +81,7 @@ export default function Home() {
               { label: 'Mutlu Müşteri', value: '5000+' },
               { label: 'Üretim Kapasitesi', value: '10K+' },
             ].map((stat, i) => (
-              <motion.div 
+              <MotionDiv 
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -89,7 +90,7 @@ export default function Home() {
               >
                 <div className="text-4xl md:text-6xl font-black text-white mb-2">{stat.value}</div>
                 <div className="text-sm font-bold text-silver-dark uppercase tracking-widest">{stat.label}</div>
-              </motion.div>
+              </MotionDiv>
             ))}
           </div>
         </div>
@@ -123,7 +124,7 @@ export default function Home() {
                 desc: 'Görkemli ve şık tavan çözümleri.'
               }
             ].map((cat, i) => (
-              <motion.div 
+              <MotionDiv 
                 key={i}
                 whileHover={{ y: -10 }}
                 className="group glass-card rounded-3xl overflow-hidden aspect-[4/5] relative"
@@ -135,7 +136,7 @@ export default function Home() {
                   <p className="text-silver-dark text-sm mb-4">{cat.desc}</p>
                   <Link href="/products" className="text-xs font-bold tracking-widest text-white uppercase border-b border-white px-2 py-1">İncele</Link>
                 </div>
-              </motion.div>
+              </MotionDiv>
             ))}
           </div>
         </div>
