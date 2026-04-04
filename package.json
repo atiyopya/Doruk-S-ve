@@ -1,5 +1,5 @@
 {
-  "name": "doruk-sove",
+  "name": "doruk-s-ve",
   "private": true,
   "version": "0.1.1",
   "type": "module",
@@ -13,17 +13,16 @@
     "autoprefixer": "^10.4.14",
     "framer-motion": "^11.0.0",
     "lucide-react": "^0.300.0",
-    "next": "^14.2.35",
+    "next": "^14.2.3",
     "postcss": "^8.4.23",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "tailwindcss": "^3.0.0"
+    "tailwindcss": "^3.3.0"
   },
   "devDependencies": {
-    "@types/node": "20.14.0",
+    "@types/node": "^20.14.0",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
     "typescript": "^5.1.6"
   }
 }
-"description": "test"
