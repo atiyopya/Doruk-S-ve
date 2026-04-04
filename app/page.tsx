@@ -82,10 +82,10 @@ export default function Home() {
               <h1 className="text-5xl md:text-8xl font-black mb-8 leading-[1.1] tracking-tight text-white">
                 KONYA'NIN EN <br />
                 <span className="text-border tracking-normal">PREMİUM</span> VE <br />
-                UCUZ SÖVESİ
+                ESTETİK SÖVESİ
               </h1>
               <p className="text-lg md:text-2xl text-silver-dark mb-10 max-w-2xl leading-relaxed font-light">
-                Doruk Söve ile mekanlarınıza değer katın. Konya genelinde en ucuz söve fiyatları ve 
+                Doruk Söve ile mekanlarınıza değer katın. Konya genelinde en uygun söve fiyatları ve 
                 en kaliteli mantolama çözümleri ile dış cephenizi modernize ediyoruz.
               </p>
               
