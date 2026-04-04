@@ -1,9 +1,16 @@
 import React from 'react'
 import '../styles/globals.css'
 import type { Metadata } from 'next'
+import { Outfit } from 'next/font/google'
 
 import Navbar from '@/components/Navbar'
 import FloatingButtons from '@/components/FloatingButtons'
+
+const outfit = Outfit({ 
+  subsets: ['latin'],
+  variable: '--font-outfit',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: 'Konya Söve & Mantolama | DORUK SÖVE - Profesyonel Çözümler',
@@ -15,8 +22,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="tr">
-      <body className="antialiased font-sans bg-obsidian">
+    <html lang="tr" className={`${outfit.variable}`}>
+      <body className="antialiased font-sans bg-obsidian text-white">
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <FloatingButtons />
