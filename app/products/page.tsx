@@ -2,6 +2,7 @@
 import React, { useMemo, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import ProductCard from '@/components/ProductCard'
+import DownloadCatalog from '@/components/DownloadCatalog'
 
 type Product = {
   id: string
@@ -45,6 +46,9 @@ export default function ProductsPage() {
               Projeleriniz için en kaliteli malzemeleri ve en şık tasarımları bir araya getirdik. 
               Modern detaylar, zamansız estetik.
             </p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <DownloadCatalog />
+            </div>
           </MotionDiv>
         </header>
 

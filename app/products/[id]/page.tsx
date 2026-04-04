@@ -2,6 +2,7 @@
 import React from 'react'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
+import DownloadCatalog from '@/components/DownloadCatalog'
 
 type Product = {
   id: string
@@ -27,7 +28,12 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
       <div>
         <h1 className="text-3xl md:text-4xl font-bold mb-4">{p.name}</h1>
         <p className="text-gray-700 mb-4">{p.description}</p>
-        <div className="text-sm text-gray-600">Kategory: {p.category}</div>
+        <div className="text-sm text-gray-600 mb-8 tracking-wide opacity-80 uppercase">Kategori: {p.category}</div>
+        
+        <div className="pt-8 border-t border-white/10">
+          <h3 className="text-xs font-bold text-white mb-6 uppercase tracking-[0.2em] opacity-50">Kataloglarımızı İndirin</h3>
+          <DownloadCatalog />
+        </div>
       </div>
     </section>
   )
