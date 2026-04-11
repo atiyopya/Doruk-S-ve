@@ -1,0 +1,11 @@
+[
+  { "id": 1, "name": "Söve Uygulamaları", "img": "/images/references/konya-sove.png", "desc": "Konya'nın tarihi dokusuyla modern mimariyi buluşturan estetik ve dayanıklı dış cephe söve uygulama projelerimiz." },
+  { "id": 2, "name": "Mantolama Projeleri", "img": "/images/references/konya-montalama.png", "desc": "Binalarınızda %50'ye varan ısı tasarrufu sağlayan, uzun ömürlü ve dekoratif mantolama çözümleri." },
+  { "id": 3, "name": "Dekoratif Baskı", "img": "/images/references/konya-baski.png", "desc": "Mekanlarınıza derinlik katan, yüksek çözünürlüklü ve estetik dekoratif baskı uygulamalarımız." },
+  { "id": 4, "name": "UV Baskı Çözümleri", "img": "/images/references/sove-uv-baski.png", "desc": "Güneşe ve dış etkenlere dayanıklı, canlı renklerle hazırlanan profesyonel UV baskı çalışmaları." },
+  { "id": 5, "name": "Stropiyer Tasarımları", "img": "/images/references/stropiyer.png", "desc": "İç mekanlarda tavan ve duvar birleşimlerinde estetik bir görünüm sunan hafif ve şık stropiyer modelleri." },
+  { "id": 6, "name": "Alçı Panel İşleri", "img": "/images/references/alci-panel.png", "desc": "Ofis ve ev dekorasyonunda bölme duvar ve asma tavan işlerinde kaliteli alçı panel çözümleri." },
+  { "id": 7, "name": "Tuğla Desenli Söve", "img": "/images/references/tugla-deseni.png", "desc": "Dış cephelerde tuğla estetik görünümünü, söve pratikliği ve izolasyonu ile birleştiren özel modeller." },
+  { "id": 8, "name": "Modern Mimari Uygulamalar", "img": "/images/references/konya-ambalaj.png", "desc": "Modern konut projelerinde, binaların karakterini belirleyen estetik söve ve dayanıklı dış cephe kaplama uygulamalarımız." },
+  { "id": 9, "name": "Doruk Söve Kalitesi", "img": "/images/references/doruk-sove.png", "desc": "Her projede kusursuz işçilik ve kaliteli malzeme kullanımı ile Doruk Söve farkını yansıtan çalışmalar." }
+]
