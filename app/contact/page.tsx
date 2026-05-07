@@ -188,7 +188,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="text-silver-dark text-xs font-bold uppercase tracking-widest mb-1">Adres</h3>
-                  <p className="text-white text-lg font-light leading-snug">Horozluhan, Güvenli Sk. 20 E, 42000 Selçuklu/Konya</p>
+                  <p className="text-white text-lg font-light leading-snug">Fatih, Boyluca Sk. No:26, 42000 Selçuklu/Konya</p>
                 </div>
               </div>
             </div>

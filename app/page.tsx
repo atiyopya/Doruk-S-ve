@@ -17,7 +17,7 @@ export default function Home() {
     "telephone": "+905304401472",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Horozluhan, Güvenli Sk. 20 E",
+      "streetAddress": "Fatih, Boyluca Sk. No:26",
       "addressLocality": "Selçuklu",
       "addressRegion": "Konya",
       "postalCode": "42000",
